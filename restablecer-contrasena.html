@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="css/base.css">
+<title>Nueva contraseña · Puntix vendedor</title>
+</head>
+<body class="pagina-auth">
+  <p class="marca">Puntix</p>
+  <p class="lema">Panel del vendedor</p>
+  <main class="contenedor">
+
+    <!-- Vista 1: formulario (se ve cuando el enlace trae token) -->
+    <section id="vista-formulario">
+      <h1>Nueva contraseña</h1>
+      <p class="texto-suave">Elige una contraseña nueva para tu cuenta.</p>
+      <div id="alerta" hidden></div>
+      <form id="formulario" novalidate>
+        <div class="campo">
+          <label for="contrasena">Nueva contraseña</label>
+          <div class="campo__clave">
+            <input type="password" id="contrasena" autocomplete="new-password" minlength="8" required aria-describedby="ayuda-contrasena">
+            <button type="button" class="campo__ver" data-para="contrasena" aria-pressed="false" aria-label="Mostrar la contraseña">Mostrar</button>
+          </div>
+          <p class="campo__ayuda" id="ayuda-contrasena">Mínimo 8 caracteres.</p>
+        </div>
+        <div class="campo">
+          <label for="repetir">Repite la contraseña</label>
+          <div class="campo__clave">
+            <input type="password" id="repetir" autocomplete="new-password" required>
+            <button type="button" class="campo__ver" data-para="repetir" aria-pressed="false" aria-label="Mostrar la contraseña">Mostrar</button>
+          </div>
+        </div>
+        <button class="btn" id="enviar" type="submit">Guardar contraseña</button>
+      </form>
+      <div class="enlaces"><a href="index.html">Volver a iniciar sesión</a></div>
+    </section>
+
+    <!-- Vista 2: resultado (enlace inválido/vencido o contraseña cambiada) -->
+    <section id="vista-estado" class="estado" hidden>
+      <div class="estado__icono" id="estado-icono" aria-hidden="true"></div>
+      <h1 id="estado-titulo"></h1>
+      <p class="texto-suave" id="estado-texto"></p>
+      <a class="btn" id="estado-boton" href="index.html"></a>
+      <div class="enlaces" id="estado-enlaces"></div>
+    </section>
+
+  </main>
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/restablecer.js"></script>
+</body>
+</html>

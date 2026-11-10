@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/panel.css">
+<title>Panel del vendedor · Puntix</title>
+</head>
+<body>
+  <header class="encabezado">
+    <div class="encabezado__interior">
+      <div><p class="marca">Puntix</p><p class="saludo" id="saludo">Panel del vendedor</p></div>
+      <button class="btn btn--secundario btn--auto" id="salir" type="button">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <main class="panel">
+    <div id="aviso" hidden></div>
+
+    <section class="resumen" aria-label="Resumen">
+      <div class="dato"><p class="dato__etiqueta">Clientes</p><p class="dato__valor" id="r-clientes">—</p></div>
+      <div class="dato"><p class="dato__etiqueta">Puntos de los clientes</p><p class="dato__valor" id="r-puntos">—</p></div>
+      <div class="dato"><p class="dato__etiqueta">Tarjetas por entregar</p><p class="dato__valor" id="r-pendientes">—</p></div>
+    </section>
+
+    <section class="contenedor" aria-label="Gestión">
+      <div class="pestanas" role="tablist" aria-label="Secciones">
+        <button class="pestana" role="tab" id="tab-clientes" aria-controls="vista-clientes" aria-selected="true" type="button">Clientes</button>
+        <button class="pestana" role="tab" id="tab-tarjetas" aria-controls="vista-tarjetas" aria-selected="false" tabindex="-1" type="button">Tarjetas</button>
+        <button class="pestana" role="tab" id="tab-movimientos" aria-controls="vista-movimientos" aria-selected="false" tabindex="-1" type="button">Movimientos</button>
+      </div>
+
+      <div id="vista-clientes" role="tabpanel" aria-labelledby="tab-clientes">
+        <div class="herramientas">
+          <div class="campo"><label for="buscar-clientes">Buscar</label>
+            <input type="text" id="buscar-clientes" placeholder="Nombre, DNI, correo o tarjeta" autocomplete="off"></div>
+        </div>
+        <div id="cuerpo-clientes"></div>
+      </div>
+
+      <div id="vista-tarjetas" role="tabpanel" aria-labelledby="tab-tarjetas" hidden>
+        <div class="herramientas">
+          <div class="campo"><label for="filtro-estado">Estado</label>
+            <select id="filtro-estado">
+              <option value="">Todas</option><option value="CREADA">Creadas (por entregar)</option>
+              <option value="ACTIVADA">Activas</option><option value="BLOQUEADA">Bloqueadas</option>
+            </select></div>
+        </div>
+        <div id="cuerpo-tarjetas"></div>
+      </div>
+
+      <div id="vista-movimientos" role="tabpanel" aria-labelledby="tab-movimientos" hidden>
+        <div class="herramientas">
+          <div class="campo"><label for="buscar-mov">Buscar</label>
+            <input type="text" id="buscar-mov" placeholder="Cliente o tarjeta" autocomplete="off"></div>
+        </div>
+        <div id="cuerpo-movimientos"></div>
+      </div>
+    </section>
+  </main>
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/panel.js"></script>
+</body>
+</html>

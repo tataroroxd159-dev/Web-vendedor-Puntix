@@ -1,0 +1,46 @@
+/* Puntix · panel del vendedor. Usa las mismas variables y componentes de base.css */
+.encabezado { background: var(--color-superficie); border-bottom: 1px solid var(--color-borde); }
+.encabezado__interior { max-width: 1100px; margin: 0 auto; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.encabezado .marca { font-size: 22px; }
+.encabezado .saludo { margin: 0; font-size: 14px; color: var(--color-texto-suave); }
+.panel { max-width: 1100px; margin: 0 auto; padding: 24px 16px 48px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; }
+
+/* Resumen */
+.resumen { display: grid; gap: 12px; grid-template-columns: 1fr; }
+.dato { background: var(--color-superficie); border: 1px solid var(--color-borde); border-radius: var(--radio-grande); box-shadow: var(--sombra); padding: 16px 20px; }
+.dato__etiqueta { margin: 0; color: var(--color-texto-suave); font-size: 14px; }
+.dato__valor { margin: 0; font-size: 32px; font-weight: 700; line-height: 1.2; font-variant-numeric: tabular-nums; }
+
+/* Pestañas */
+.pestanas { display: flex; gap: 4px; border-bottom: 1px solid var(--color-borde); margin-bottom: 16px; overflow-x: auto; }
+.pestana { font: inherit; font-weight: 600; min-height: 44px; padding: 0 16px; cursor: pointer; white-space: nowrap;
+  background: transparent; color: var(--color-texto-suave); border: 0; border-bottom: 3px solid transparent; }
+.pestana:hover { color: var(--color-primario-oscuro); }
+.pestana[aria-selected="true"] { color: var(--color-primario-oscuro); border-bottom-color: var(--color-primario); }
+
+/* Herramientas y tabla */
+.herramientas { display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-end; }
+.herramientas .campo { margin-bottom: 12px; min-width: 240px; flex: 0 1 320px; }
+.campo select { width: 100%; min-height: 44px; padding: 0 12px; font: inherit; color: inherit; background: #fff; border: 1px solid var(--color-borde); border-radius: var(--radio); }
+.campo select:focus { border-color: var(--color-primario); }
+.tabla { min-width: 640px; }
+.tabla th button { all: unset; cursor: pointer; font-weight: 600; }
+.tabla th button:focus-visible { outline: 3px solid var(--color-primario); outline-offset: 2px; }
+.tabla .acciones { display: flex; gap: 8px; flex-wrap: wrap; }
+.btn--chico { min-height: 36px; padding: 0 12px; font-size: 14px; width: auto; }
+.codigo { font-family: ui-monospace, Menlo, Consolas, monospace; font-weight: 700; letter-spacing: .12em; }
+.pts { font-weight: 700; font-variant-numeric: tabular-nums; }
+.pts--suma { color: var(--color-exito); }
+.vacio, .estado-carga { text-align: center; color: var(--color-texto-suave); padding: 32px 0; }
+.pie-tabla { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 12px; font-size: 14px; color: var(--color-texto-suave); }
+.pie-tabla .btn { min-width: 96px; }
+
+/* Ventana (modal) */
+.fondo { position: fixed; inset: 0; background: rgba(15, 23, 42, .55); display: flex; align-items: center; justify-content: center; padding: 16px; z-index: 20; }
+.modal { background: var(--color-superficie); border-radius: var(--radio-grande); padding: 24px; width: 100%; max-width: 520px; max-height: 90vh; overflow: auto; box-shadow: var(--sombra); }
+.modal h2 { margin-bottom: 8px; }
+.modal__acciones { display: flex; gap: 8px; justify-content: flex-end; flex-wrap: wrap; margin-top: 16px; }
+.modal__acciones .btn { width: auto; }
+.modal .tabla { min-width: 0; }
+
+@media (min-width: 768px) { .resumen { grid-template-columns: repeat(3, 1fr); } .panel { padding-top: 32px; } }
